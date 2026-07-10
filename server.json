@@ -1,0 +1,19 @@
+{
+  "name": "ad-extract",
+  "displayName": "Adextract MCP",
+  "description": "Search ad libraries across Meta, Google Ads, LinkedIn, and TikTok with unified MCP tools and creative analysis.",
+  "version": "1.0.0",
+  "homepage": "https://adextract.co",
+  "repository": "https://github.com/ad-vertly/adextract-mcp-server",
+  "documentation": "https://github.com/ad-vertly/adextract-mcp-server#readme",
+  "license": "MIT",
+  "protocol": {
+    "type": "streamable-http",
+    "endpoint": "https://mcp.adextract.co/mcp"
+  },
+  "serverCardUrl": "https://mcp.adextract.co/.well-known/mcp.json",
+  "auth": {
+    "supported": ["oauth2", "bearer"]
+  },
+  "categories": ["marketing", "ads", "competitive-intelligence", "mcp"]
+}
