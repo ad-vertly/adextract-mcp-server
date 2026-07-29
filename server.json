@@ -1,19 +1,28 @@
 {
-  "name": "ad-extract",
-  "displayName": "Adextract MCP",
-  "description": "Search ad libraries across Meta, Google Ads, LinkedIn, and TikTok with unified MCP tools and creative analysis.",
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.anuragind003/ad-extract",
+  "title": "Adextract MCP",
+  "description": "Search Meta, Google Ads, LinkedIn, and TikTok ad libraries plus creative analysis via MCP.",
   "version": "1.0.0",
-  "homepage": "https://adextract.co",
-  "repository": "https://github.com/ad-vertly/adextract-mcp-server",
-  "documentation": "https://github.com/ad-vertly/adextract-mcp-server#readme",
-  "license": "MIT",
-  "protocol": {
-    "type": "streamable-http",
-    "endpoint": "https://mcp.adextract.co/mcp"
+  "websiteUrl": "https://adextract.co",
+  "repository": {
+    "url": "https://github.com/ad-vertly/adextract-mcp-server",
+    "source": "github",
+    "id": "1296205733"
   },
-  "serverCardUrl": "https://mcp.adextract.co/.well-known/mcp.json",
-  "auth": {
-    "supported": ["oauth2", "bearer"]
-  },
-  "categories": ["marketing", "ads", "competitive-intelligence", "mcp"]
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.adextract.co/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer API key from https://adextract.co (account → API keys)",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    }
+  ]
 }

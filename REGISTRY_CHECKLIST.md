@@ -14,6 +14,7 @@ Use before submitting **Adextract MCP** to the [MCP Registry](https://github.com
 - [ ] `GET https://mcp.adextract.co/health` → `200`
 - [ ] `GET https://mcp.adextract.co/.well-known/mcp.json` → valid server card JSON
 - [ ] `GET https://mcp.adextract.co/.well-known/oauth-protected-resource` → valid metadata
+- [ ] `GET https://mcp.adextract.co/.well-known/oauth-authorization-server/oauth` → valid metadata (RFC 8414)
 - [ ] Valid TLS certificate on `mcp.adextract.co`
 
 ## Authentication

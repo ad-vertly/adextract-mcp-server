@@ -56,7 +56,7 @@ Create an API key at [adextract.co](https://adextract.co) unless your client use
 OAuth discovery (for client implementers):
 
 - `https://mcp.adextract.co/.well-known/oauth-protected-resource`
-- `https://mcp.adextract.co/oauth/.well-known/oauth-authorization-server`
+- `https://mcp.adextract.co/.well-known/oauth-authorization-server/oauth` (RFC 8414 for issuer `https://mcp.adextract.co/oauth`)
 
 ---
 

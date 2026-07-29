@@ -132,7 +132,7 @@ Resources include agent skill instructions and prompt-pack references (`adextrac
 Discovery endpoints:
 
 - `https://mcp.adextract.co/.well-known/oauth-protected-resource`
-- `https://mcp.adextract.co/oauth/.well-known/oauth-authorization-server`
+- `https://mcp.adextract.co/.well-known/oauth-authorization-server/oauth`
 
 Server card (registry / client discovery):
 
