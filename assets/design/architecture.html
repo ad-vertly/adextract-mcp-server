@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face {
+    font-family: 'Outfit';
+    src: url('file:///Users/gaurav.singh/Library/Fonts/Outfit%5Bwght%5D.ttf') format('truetype');
+    font-weight: 100 900;
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    src: url('file:///Users/gaurav.singh/Library/Fonts/IBMPlexSans%5Bwdth,wght%5D.ttf') format('truetype');
+    font-weight: 100 700;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1600px; height: 900px; overflow: hidden; }
+  body {
+    background: #ffffff;
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    position: relative;
+  }
+
+  .title {
+    position: absolute; top: 52px; left: 0; width: 100%; text-align: center;
+  }
+  .title h2 {
+    font-family: 'Outfit', sans-serif; font-weight: 800;
+    font-size: 56px; color: #0f172a; letter-spacing: -0.01em;
+  }
+  .title h2 .accent { color: #7c5ce7; }
+  .title p { font-size: 22px; color: #64748b; margin-top: 10px; font-weight: 400; }
+
+  /* left: client */
+  .client-card {
+    position: absolute; left: 60px; top: 240px; width: 300px; height: 420px;
+    border: 2px solid #e2e8f0; border-radius: 24px; background: #fafaff;
+    padding: 28px 24px; display: flex; flex-direction: column; align-items: center;
+  }
+  .client-card .tag {
+    font-size: 15px; font-weight: 600; color: #7c5ce7; text-transform: uppercase;
+    letter-spacing: 0.08em; margin-bottom: 20px;
+  }
+  .client-card .apps { display: flex; flex-direction: column; gap: 14px; width: 100%; }
+  .client-app {
+    display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 19px; color: #334155;
+    border: 1.5px solid #e2e8f0; background: #ffffff; border-radius: 14px; padding: 12px 16px;
+  }
+  .client-app .ic { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; flex: none; }
+  .client-app .ic svg { width: 24px; height: 24px; }
+
+  /* middle: server */
+  .server-card {
+    position: absolute; left: 650px; top: 170px; width: 300px; height: 560px;
+    background: #0f172a; border-radius: 28px; padding: 32px 28px; text-align: center;
+    box-shadow: 0 24px 60px rgba(15,23,42,0.18);
+  }
+  .server-card .logo { width: 64px; height: 64px; margin: 0 auto 14px; border-radius: 18px; background: #ffffff; display: flex; align-items: center; justify-content: center; }
+  .server-card .logo img { width: 48px; height: 48px; }
+  .server-card h3 { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 32px; color: #ffffff; }
+  .server-card .srv-sub { font-size: 17px; color: #94a3b8; margin-top: 4px; }
+  .server-card .endpoint {
+    margin-top: 22px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 12px; padding: 12px; font-size: 15px; color: #e2e8f0;
+    font-family: 'IBM Plex Sans', monospace; word-break: break-all;
+  }
+  .server-card .pill {
+    margin-top: 18px; display: inline-block; background: rgba(167,139,250,0.18); color: #c4b5fd;
+    font-weight: 600; font-size: 15px; padding: 6px 14px; border-radius: 999px;
+  }
+  .server-card .tools { margin-top: 24px; text-align: left; }
+  .server-card .tools .tt { font-size: 13px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+  .tool-chip {
+    display: inline-block; background: rgba(255,255,255,0.07); color: #cbd5e1;
+    font-size: 14.5px; padding: 7px 12px; border-radius: 9px; margin: 0 6px 8px 0; font-weight: 500;
+  }
+
+  /* right: platforms */
+  .platforms-col { position: absolute; left: 1240px; top: 200px; width: 300px; display: flex; flex-direction: column; gap: 18px; }
+  .platform-card {
+    display: flex; align-items: center; gap: 14px;
+    border: 2px solid #e2e8f0; border-radius: 18px; background: #ffffff; padding: 18px 20px;
+  }
+  .platform-card .ic { width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; flex: none; }
+  .platform-card .ic svg { width: 30px; height: 30px; }
+  .platform-card .name { font-weight: 700; font-size: 20px; color: #0f172a; }
+  .platform-card .desc { font-size: 14px; color: #64748b; margin-top: 2px; }
+
+  /* arrows */
+  .arrow { position: absolute; top: 440px; }
+  .arrow .line { height: 3px; background: #a78bfa; position: relative; }
+  .arrow .line::after {
+    content: ''; position: absolute; right: -2px; top: -6px;
+    border-left: 12px solid #a78bfa; border-top: 7px solid transparent; border-bottom: 7px solid transparent;
+  }
+  .arrow .lbl { position: absolute; top: -30px; left: 50%; transform: translateX(-50%);
+    font-size: 15px; font-weight: 600; color: #7c5ce7; background: #ffffff; padding: 2px 10px; border-radius: 999px;
+    border: 1.5px solid #ddd6fe; white-space: nowrap; }
+
+  .arrow-r { position: absolute; width: 4px; background: #a78bfa; }
+  .arrow-r .lbl { position: absolute; left: -86px; top: 50%; transform: translateY(-50%); font-size: 14px; font-weight: 600; color: #7c5ce7; background: #ffffff; padding: 2px 10px; border-radius: 999px; border: 1.5px solid #ddd6fe; white-space: nowrap; }
+  .arrow-r::after {
+    content: ''; position: absolute; bottom: -2px; left: 50%; transform: translateX(-50%);
+    border-top: 12px solid #a78bfa; border-left: 7px solid transparent; border-right: 7px solid transparent;
+  }
+</style>
+</head>
+<body>
+  <div class="title">
+    <h2>How it works — <span class="accent">one MCP server, four ad libraries</span></h2>
+    <p>Your AI assistant talks MCP. Adextract does the searching. You get answers.</p>
+  </div>
+
+  <!-- Client card -->
+  <div class="client-card">
+    <div class="tag">Your AI assistant</div>
+    <div class="apps">
+      <div class="client-app">
+        <span class="ic"><svg viewBox="0 0 24 24"><path fill="#D97757" d="M12 0C5.37 0 0 5.37 0 12c0 4.14 2.09 7.79 5.26 10L6 16.29a5.54 5.54 0 01-.41-1.61h.01c0-3.09 2.51-5.6 5.6-5.6 3.09 0 5.6 2.51 5.6 5.6 0 .56-.08 1.1-.22 1.61l.74 3.7C19.91 19.79 22 16.14 22 12c0-6.63-5.37-12-12-12z"/></svg></span>
+        Claude
+      </div>
+      <div class="client-app">
+        <span class="ic"><svg viewBox="0 0 24 24"><path fill="#7c5ce7" d="M19.503 0H4.496A4.496 4.496 0 000 4.496v15.007A4.496 4.496 0 004.496 24h15.007A4.496 4.496 0 0024 19.503V4.496A4.496 4.496 0 0019.503 0z" opacity="0"/><path fill="#7c5ce7" d="M8.6 3.7h6.8L12 9.5 8.6 3.7zm6.2 1.9l-2.3 3.8 2.3 3.8h4.6l-2.3-3.8 2.3-3.8h-4.6zM4.6 5.6h4.6L6.9 9.4l2.3 3.8H4.6L2.3 9.4l2.3-3.8z"/></svg></span>
+        Cursor
+      </div>
+      <div class="client-app">
+        <span class="ic"><svg viewBox="0 0 24 24"><path fill="#0CA789" d="M3 2h18a1 1 0 011 1v15a1 1 0 01-1 1H8l-4 3v-3H3a1 1 0 01-1-1V3a1 1 0 011-1zm9 3.5a4.5 4.5 0 100 9 4.5 4.5 0 000-9zM8.8 10c0-2.1 1.4-3.9 3.4-4.4A4.5 4.5 0 008.8 10z"/></svg></span>
+        VS Code
+      </div>
+      <div class="client-app">
+        <span class="ic"><svg viewBox="0 0 24 24"><path fill="#E04444" d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.05c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.13-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.25 2.87.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.62-2.8 5.64-5.48 5.94.43.37.81 1.1.81 2.22v3.3c0 .32.22.7.82.58A12 12 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></span>
+        GitHub Copilot
+      </div>
+    </div>
+  </div>
+
+  <!-- Server card -->
+  <div class="server-card">
+    <div class="logo"><img src="file:///tmp/adextract-repo-assets/adextract-logo.png" /></div>
+    <h3>Adextract</h3>
+    <div class="srv-sub">Hosted MCP server</div>
+    <div class="endpoint">mcp.adextract.co/mcp</div>
+    <div class="pill">OAuth · API key · 50 free</div>
+    <div class="tools">
+      <div class="tt">13 MCP tools</div>
+      <span class="tool-chip">search_meta_ads</span><span class="tool-chip">search_google_ads</span><span class="tool-chip">search_linkedin_ads</span><span class="tool-chip">search_tiktok_ads</span><span class="tool-chip">ad_reader</span><span class="tool-chip">+8 more</span>
+    </div>
+  </div>
+
+  <!-- Platform cards -->
+  <div class="platforms-col">
+    <div class="platform-card">
+      <span class="ic"><svg viewBox="0 0 24 24"><path fill="#0668E1" d="M6.897 4h-.024l-.031 2.615h.022c1.715 0 3.046 1.357 5.94 6.246l.175.297.012.02 1.62-2.438-.012-.019a48.763 48.763 0 00-1.098-1.716 28.01 28.01 0 00-1.175-1.629C10.413 4.932 8.812 4 6.896 4z"/><path fill="#0668E1" d="M6.873 4C4.454 4 2.61 6.107 2.61 9.271c0 1.908.667 4.336 1.683 6.966.697 1.812 1.883 4.168 2.75 4.168 1.581 0 4.6-6.944 5.437-8.113l-.012-.02C11.408 10.655 9.047 4 6.873 4z"/><path fill="#0668E1" d="M19.6 6.15c-.56.336-1.31.59-1.55 1.394-.301 1.012.588 3.167 1.77 4.719.63.833 1.62 1.77 2.49 1.77 1.348 0 3.39-5.31 3.69-6.983.03-.159.027-.27-.036-.36-.188-.272-3.608-2.73-6.364-.54zM14.75 7.847c-.928-.725-3.545-2.807-5.032-.768-.463.635-.195 1.656.187 2.402.444.847 3.42 5.766 3.42 5.766l1.64-2.545c1.209-1.883 1.285-3.92-.215-4.855z"/></svg></span>
+      <div><div class="name">Meta</div><div class="desc">Facebook &amp; Instagram ads</div></div>
+    </div>
+    <div class="platform-card">
+      <span class="ic"><svg viewBox="0 0 64 64"><path d="M85.9 28.6c2.4-6.3 5.7-12.1 10.6-16.8 19.6-19.1 52-14.3 65.3 9.7 10 18.2 20.6 36 30.9 54l51.6 89.8c14.3 25.1-1.2 56.8-29.6 61.1-17.4 2.6-33.7-5.4-42.7-21l-45.4-78.8c-.3-.6-.7-1.1-1.1-1.6-1.6-1.3-2.3-3.2-3.3-4.9L88.8 62.2c-3.9-6.8-5.7-14.2-5.5-22 .3-4 .8-8 2.6-11.6" fill="#3c8bd9" transform="matrix(0.257748 0 0 0.257745 -0.361416 2.515516)"/><path d="M85.9 28.6c-.9 3.6-1.7 7.2-1.9 11-.3 8.4 1.8 16.2 6 23.5l32.9 56.9c1 1.7 1.8 3.4 2.8 5l-18.1 31.1-25.3 43.6c-.4 0-.5-.2-.6-.5-.1-.8.2-1.5.4-2.3 4.1-15 .7-28.3-9.6-39.7-6.3-6.9-14.3-10.8-23.5-12.1-12-1.7-22.6 1.4-32.1 8.9-1.7 1.3-2.8 3.2-4.8 4.2-.4 0-.6-.2-.7-.5l14.3-24.9L85.2 29.7c.2-.4.5-.7.7-1.1" fill="#fabc04" transform="matrix(0.257748 0 0 0.257745 -0.361416 2.515516)"/><path d="M11.8 158l5.7-5.1c24.3-19.2 60.8-5.3 66.1 25.1 1.3 7.3.6 14.3-1.6 21.3-.1.6-.2 1.1-.4 1.7-.9 1.6-1.7 3.3-2.7 4.9-8.9 14.7-22 22-39.2 20.9C20 225.4 4.5 210.6 1.8 191c-1.3-9.5.6-18.4 5.5-26.6 1-1.8 2.2-3.4 3.3-5.2.5-.4.3-1.2 1.2-1.2" fill="#34a852" transform="matrix(0.257748 0 0 0.257745 -0.361416 2.515516)"/></svg></span>
+      <div><div class="name">Google Ads</div><div class="desc">Transparency Center</div></div>
+    </div>
+    <div class="platform-card">
+      <span class="ic"><svg viewBox="0 0 24 24"><path fill="#0A66C2" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></span>
+      <div><div class="name">LinkedIn</div><div class="desc">LinkedIn Ad Library</div></div>
+    </div>
+    <div class="platform-card">
+      <span class="ic"><svg viewBox="0 0 24 24"><path fill="#000000" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64c.3 0 .58.05.85.13V9.4a6.33 6.33 0 00-5.4 10.84 6.33 6.33 0 009.24-7.1V8.01a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-.35.56z"/></svg></span>
+      <div><div class="name">TikTok</div><div class="desc">TikTok Ads Library</div></div>
+    </div>
+  </div>
+
+  <!-- Arrow client -> server -->
+  <div class="arrow" style="left: 378px; width: 254px;">
+    <div class="lbl">MCP</div>
+    <div class="line"></div>
+  </div>
+
+  <!-- Arrow server -> platforms -->
+  <div class="arrow" style="left: 968px; width: 254px;">
+    <div class="lbl">search · read · analyze</div>
+    <div class="line"></div>
+  </div>
+</body>
+</html>

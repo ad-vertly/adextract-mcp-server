@@ -3,12 +3,32 @@
 [![MCP](https://img.shields.io/badge/MCP-Streamable%20HTTP-blue)](https://modelcontextprotocol.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
+<p align="center">
+  <img src="assets/adextract-hero.png" alt="Adextract — ad intelligence for AI agents" width="100%">
+</p>
+
 Adextract is an MCP (Model Context Protocol) server that gives AI assistants ad intelligence. It searches the ad libraries of **Meta** (Facebook and Instagram), **Google Ads**, **LinkedIn**, and **TikTok**, and analyzes ad creatives with `ad_reader`.
 
 **Hosted endpoint:** `https://mcp.adextract.co/mcp`
 **Free tier:** 50 free searches. Get an API key at [adextract.co](https://adextract.co).
 
 > ⭐ If Adextract helps you, star this repo. It helps other AI developers find it.
+
+---
+
+## Watch the demo
+
+[![Watch the demo on YouTube](assets/adextract-video.png)](https://youtu.be/GjhLeqV3zx8)
+
+---
+
+## How it works
+
+One MCP server, one API key, four ad libraries. Your AI assistant talks MCP — Adextract does the searching and analyzing.
+
+<p align="center">
+  <img src="assets/adextract-architecture.png" alt="Adextract architecture — one MCP server connecting AI assistants to Meta, Google Ads, LinkedIn, and TikTok" width="100%">
+</p>
 
 ---
 
@@ -232,4 +252,10 @@ Each ad platform has its own library, API, and access rules. Adextract gives one
 - **MCP endpoint:** `https://mcp.adextract.co/mcp`
 - **Repository:** [github.com/ad-vertly/adextract-mcp-server](https://github.com/ad-vertly/adextract-mcp-server)
 
-Built with ❤️ by [Adextract](https://adextract.co)
+---
+
+<p align="center">
+  <img src="assets/adextract-mascot.png" alt="Adextract mascot" width="180">
+  <br>
+  <sub>Built with ❤️ by <a href="https://adextract.co">Adextract</a></sub>
+</p>
