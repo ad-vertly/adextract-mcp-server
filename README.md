@@ -18,7 +18,7 @@ Adextract is an MCP (Model Context Protocol) server that gives AI assistants ad 
 
 ## Watch the demo
 
-<video src="assets/adextract-demo.mp4" poster="assets/adextract-demo-poster.png" controls width="100%" style="max-width: 720px; border-radius: 16px;"></video>
+[![Watch the demo](assets/adextract-demo-poster.png)](assets/adextract-demo.mp4)
 
 *Also on [YouTube](https://youtu.be/GjhLeqV3zx8).*
 
