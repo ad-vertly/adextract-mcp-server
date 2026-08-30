@@ -256,6 +256,21 @@ Each ad platform has its own library, API, and access rules. Adextract gives one
 
 ---
 
+## Community
+
+<p align="center">
+  <a href="https://www.youtube.com/channel/UCGrdoSM1qYHavLXPm7HMJ5w"><img src="https://img.shields.io/badge/YouTube-adextract-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube"></a>&nbsp;
+  <a href="https://www.instagram.com/ad_extract/"><img src="https://img.shields.io/badge/Instagram-@ad_extract-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"></a>&nbsp;
+  <a href="https://www.linkedin.com/company/adextract"><img src="https://img.shields.io/badge/LinkedIn-adextract-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>&nbsp;
+  <a href="https://x.com/adextract"><img src="https://img.shields.io/badge/X-@adextract-000000?style=for-the-badge&logo=x&logoColor=white" alt="X"></a>
+</p>
+
+<p align="center">
+  <sub>Follow us for ad intelligence tips, MCP updates, and what your competitors are running.</sub>
+</p>
+
+---
+
 <p align="center">
   <img src="assets/adextract-mascot.png" alt="Adextract mascot" width="180">
   <br>
