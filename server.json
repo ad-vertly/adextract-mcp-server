@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.anuragind003/ad-extract",
+  "name": "io.github.ad-vertly/adextract-mcp-server",
   "title": "Adextract MCP",
-  "description": "Search Meta, Google Ads, LinkedIn, and TikTok ad libraries plus creative analysis via MCP.",
+  "description": "Search Meta, Google Ads, LinkedIn, and TikTok ad libraries plus creative analysis with ad_reader. 50 free searches.",
   "version": "1.0.0",
   "websiteUrl": "https://adextract.co",
   "repository": {

@@ -3,9 +3,31 @@
 [![MCP](https://img.shields.io/badge/MCP-Streamable%20HTTP-blue)](https://modelcontextprotocol.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Connect AI assistants to **Adextract** — search ad libraries across **Meta**, **Google Ads**, **LinkedIn**, and **TikTok**, plus creative analysis with `ad_reader`.
+Adextract is an MCP (Model Context Protocol) server that gives AI assistants ad intelligence. It searches the ad libraries of **Meta** (Facebook and Instagram), **Google Ads**, **LinkedIn**, and **TikTok**, and analyzes ad creatives with `ad_reader`.
 
 **Hosted endpoint:** `https://mcp.adextract.co/mcp`
+**Free tier:** 50 free searches. Get an API key at [adextract.co](https://adextract.co).
+
+> ⭐ If Adextract helps you, star this repo. It helps other AI developers find it.
+
+---
+
+## Quickstart
+
+1. Get a free API key at [adextract.co](https://adextract.co) (account → API keys).
+2. Add the server to Cursor with the config below.
+3. Ask your AI: *"Show me Nike's active Facebook ads in the US"*.
+
+There is nothing to install locally. Adextract runs as a hosted MCP server, so it works in any MCP-capable client.
+
+---
+
+## Use cases
+
+- **Competitor ad intelligence** - see what your competitors are running across Meta, Google, LinkedIn, and TikTok.
+- **Creative analysis** - `ad_reader` breaks any ad creative into format, audience, emotion, and archetypes.
+- **Brand monitoring** - track ads for any brand or domain across four ad libraries.
+- **Channel strategy** - built-in MCP prompts turn ad data into channel plans.
 
 ---
 
@@ -61,7 +83,7 @@ Add to `.vscode/mcp.json`:
 1. Open Claude → **Settings** → **Connectors** → **Add custom connector**
 2. Name: `ad-extract`
 3. URL: `https://mcp.adextract.co/mcp`
-4. Sign in and approve when prompted — no API key in the URL.
+4. Sign in and approve when prompted (no API key in the URL).
 
 ### Claude Desktop (`mcp-remote`)
 
@@ -75,7 +97,7 @@ Add to `.vscode/mcp.json`:
         "mcp-remote",
         "https://mcp.adextract.co/mcp",
         "--header",
-        "Authorization: Bearer YOUR_API_KEY"
+        "Authorization: Bearer ***"
       ]
     }
   }
@@ -152,6 +174,42 @@ Find Google ads for tesla.com from the last 30 days.
 Analyze this ad creative URL with ad_reader.
 → ad_reader({ url: "https://..." })
 ```
+
+---
+
+## FAQ
+
+### What is Adextract?
+
+Adextract is a hosted MCP server that lets AI assistants search the public ad libraries of Meta, Google Ads, LinkedIn, and TikTok, and analyze ad creatives. It works with Claude, Cursor, VS Code, and any MCP-capable client.
+
+### Which ad libraries does it cover?
+
+Meta Ad Library (Facebook and Instagram), Google Ads Transparency Center, LinkedIn Ad Library, and TikTok Ads Library.
+
+### How do I get an API key?
+
+Sign up at [adextract.co](https://adextract.co), then go to account → API keys. The key is shown once at creation.
+
+### Is there a free tier?
+
+Yes. New accounts get 50 free searches. Paid plans are available at [adextract.co](https://adextract.co).
+
+### What does `ad_reader` do?
+
+It analyzes any public image or video ad creative and returns structured JSON: format, target audience, emotion (Plutchik/VAD), archetypes, and industry/brand.
+
+### Do I need to run any code locally?
+
+No. Adextract is a hosted server. You only add a config entry to your client.
+
+### Can I use OAuth instead of an API key?
+
+Yes. Claude Web and other OAuth-capable connectors can sign in directly, with no API key in the URL. Other clients use a Bearer API key.
+
+### How is this different from querying the ad libraries directly?
+
+Each ad platform has its own library, API, and access rules. Adextract gives one MCP interface across all four, plus creative analysis, without writing platform-specific code.
 
 ---
 
