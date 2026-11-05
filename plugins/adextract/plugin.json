@@ -3,15 +3,42 @@
   "name": "adextract",
   "version": "1.0.0",
   "description": "Connects the agent to adextract's remote MCP server: competitor ad research across Meta, Google, LinkedIn and TikTok public ad libraries, plus ad image and video analysis. All tools are read-only.",
-  "author": { "name": "Advertly, Inc.", "url": "https://adextract.co" },
+  "author": {
+    "name": "Advertly, Inc.",
+    "url": "https://adextract.co"
+  },
   "homepage": "https://adextract.co",
   "repository": "https://github.com/ad-vertly/adextract-mcp-server",
   "license": "MIT",
-  "keywords": ["ads", "advertising", "competitor-research", "marketing", "mcp"],
+  "keywords": [
+    "ads",
+    "advertising",
+    "competitor-research",
+    "marketing",
+    "mcp"
+  ],
   "extensions": {
     "com.nousresearch.hermes": {
       "servers": {
-        "adextract": { "trust": "untrusted" }
+        "adextract": {
+          "trust": "untrusted",
+          "costs": {
+            "search_meta_ads": 1,
+            "search_meta_pages": 1,
+            "get_meta_page_info": 1,
+            "get_meta_ad_details": 1,
+            "search_google_ads": 1,
+            "search_google_ads_advertisers": 1,
+            "get_google_ad_details": 1,
+            "get_google_ads_advertiser_info": 1,
+            "search_linkedin_ads": 1,
+            "search_tiktok_ads": 1,
+            "search_tiktok_advertisers": 1,
+            "get_tiktok_ad_details": 1,
+            "ad_reader": 1
+          },
+          "cost_unit": "credits"
+        }
       }
     }
   }
