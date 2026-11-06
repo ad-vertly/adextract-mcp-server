@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "adextract",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Connects the agent to adextract's remote MCP server: competitor ad research across Meta, Google, LinkedIn and TikTok public ad libraries, plus ad image and video analysis. All tools are read-only.",
   "author": {
     "name": "Advertly, Inc.",

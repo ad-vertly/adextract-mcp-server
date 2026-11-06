@@ -1,0 +1,13 @@
+{
+  "name": "adextract",
+  "version": "1.0.1",
+  "description": "Competitor ad research for your agent through adextract's hosted MCP server: Meta, Google, LinkedIn and TikTok ad libraries, read-only.",
+  "license": "MIT",
+  "type": "module",
+  "homepage": "https://adextract.co",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ad-vertly/adextract-mcp-server.git",
+    "directory": "plugins/adextract"
+  }
+}

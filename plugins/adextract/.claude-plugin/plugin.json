@@ -1,6 +1,6 @@
 {
   "name": "adextract",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Competitor ad research for your agent through adextract's hosted MCP server: search the public ad libraries of Meta, Google, LinkedIn and TikTok, open single-ad details, and analyze ad images and videos. All tools are read-only.",
   "author": { "name": "Advertly, Inc.", "url": "https://adextract.co" },
   "homepage": "https://adextract.co",
