@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "adextract": {
+      "type": "http",
+      "url": "https://mcp.adextract.co/mcp",
+      "headers": {
+        "Authorization": "Bearer ${ADEXTRACT_API_KEY}"
+      }
+    }
+  }
+}

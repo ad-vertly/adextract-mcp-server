@@ -1,4 +1,4 @@
-# adextract for Hermes
+# adextract for Hermes and OpenClaw
 
 Connects your agent to the adextract remote MCP server (`https://mcp.adextract.co/mcp`) for competitor ad research across the public ad libraries of Meta, Google, LinkedIn and TikTok. It can also analyze any ad image or video for format, audience, emotion and message.
 
@@ -13,6 +13,13 @@ This package is configuration only. It has no local code and no background proce
 If you would rather sign in with OAuth than use a key, add the server yourself after installing the plugin: `hermes mcp add adextract --url https://mcp.adextract.co/mcp --auth oauth`. A server in your own config replaces the package's entry, and the skills keep working.
 
 New accounts get free starter credits.
+
+## Install on OpenClaw
+
+1. Create an API key at https://app.adextract.co and put `ADEXTRACT_API_KEY=...` in the environment your gateway runs with.
+2. `openclaw plugins install clawhub:adextract`
+
+The same package works there: OpenClaw reads it as a bundle, loads the five skills, and connects the same hosted server with the same `Authorization` header.
 
 ## What you get
 
