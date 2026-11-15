@@ -102,6 +102,28 @@ Add to `.vscode/mcp.json`:
 }
 ```
 
+### DeepSeek Harness
+
+[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (`dsh`) connects remote MCP servers with an API key. It has no OAuth flow, so use the key, not the sign-in route.
+
+Needs Node.js 24.9 or newer. Put your key in the environment, then save this as `adextract.yml`:
+
+```yaml
+- insert:
+    - id: mcp-adextract
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: adextract
+        transport: streamable-http
+        url: https://mcp.adextract.co/mcp
+        headers:
+          Authorization: !!js '`Bearer ${process.env.ADEXTRACT_API_KEY}`'
+```
+
+Run it with `export ADEXTRACT_API_KEY=your_key` and then `npx @deepseek-ai/dsh@latest web --patch ./adextract.yml`. (`@latest` is needed because only prerelease builds are published.) The 13 tools appear as `mcp__adextract__<tool>`.
+
+Tested with `dsh` 0.2.2-rc.1, a developer preview, in headless mode (`dsh headless --patch ./adextract.yml "..."`): it connected, listed all 13 tools and ran a Google ads search. The `web` profile takes the same `--patch` flag but has not been tested. To add the research skills, copy the folders from [`plugins/adextract/skills`](plugins/adextract/skills) into `~/.agents/skills` (not tested).
+
 ### Claude Web (OAuth)
 
 1. Open Claude → **Settings** → **Connectors** → **Add custom connector**
